@@ -4,6 +4,8 @@ import Color from '../constant/Color';
 import {useDispatch} from 'react-redux'
 import * as PlaceAction from '../store/places-action';
 import ImagePicker from '../components/ImagePicker';
+import LocationPicker from '../components/LocationPicker';
+
 
 const NewPlaceScreen = ({props,navigation,route}) => {
     const [title, setTitle] = useState('');
@@ -27,13 +29,14 @@ const NewPlaceScreen = ({props,navigation,route}) => {
     };
 
     return (
-        <ScrollView>
+        <ScrollView style={{marginHorizontal: 10}}>
             <View style={styles.form}>
                 <View style={styles.inputContainer}>
                     <Text style={styles.title} >Title</Text>
                     <TextInput style={styles.input} onChangeText={text => changeTextHandler(text)} />
                 </View>
                 <ImagePicker onTakeImg={takeImg} />
+                <LocationPicker  />
                 <View>
                     <Button title='Add' onPress={onAddHandler} />
                 </View>

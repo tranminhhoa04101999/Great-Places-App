@@ -14,7 +14,7 @@ const db = SQLite.openDatabase({
 
 export const fetchData = () => {
     const promise = new Promise((resolve, reject) => {
-        db.transaction(tx => {
+        db.transaction((tx) => {
             tx.executeSql(
                 'SELECT * FROM places',
                 [],

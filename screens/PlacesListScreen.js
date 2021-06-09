@@ -20,9 +20,9 @@ const PlacesListScreen = ({ props, navigation, route }) => {
         });
     }, []);
 
-    // useEffect(()=>{
-    //     dispatch(PlaceActions.setPlace());
-    // },[dispatch]);
+    useEffect(()=>{
+        dispatch(PlaceActions.setPlace());
+    },[dispatch]);
 
     return (
         <FlatList data={listPlaces} keyExtractor={item => item.id} renderItem={data => {

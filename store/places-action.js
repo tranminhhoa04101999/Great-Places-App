@@ -16,9 +16,16 @@ export const addPlace = (title, img) => {
 export const setPlace = () => {
     return async dispatch => {
         try {
-            const result = fetchData();
+            const result = await fetchData();
+            const data = [];
+            console.log('result row ', result.rows.item(0));
+            for (let i = 0; i < result.rows.length; i++) {
+                let item = result.rows.item(i);
+                data.push(item);
+            }
+
             dispatch({
-                type: SET_PLACE, places: result.rows._array
+                type: SET_PLACE, places: data
             });
         } catch (error) {
             throw error;
